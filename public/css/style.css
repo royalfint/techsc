@@ -166,6 +166,20 @@ p { line-height: 1.3rem; }
     align-items: center; width: 50rem; }
 .order button.btn { width: 22.5rem; margin-bottom: 4.5rem; }
 
+/*************** PORTFOLIO ***************/
+.grid h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin: 3rem 0; width: 100%; }
+.grid { margin: 10rem 0 0 0; }
+.grid > div { display: flex; flex-wrap: wrap; }
+.grid > div > div { width: 22rem; margin: 0 .5rem 2.5rem .5rem; }
+.grid > div img { width: 100%; }
+.grid p { color: #5d5d5d; margin-bottom: 1rem;}
+.grid h3 { font-size: 1.125rem; text-transform: uppercase; padding: 1.125rem 0;
+    white-space: nowrap; overflow-x: hidden; }
+.grid h7 { width: 100%; margin-bottom: 1.5rem; }
+.grid button { width: 100%; background: #c8c3c0; color: #fff; }
+.grid.finished { margin: 2rem 0 2rem 0; }
+
 /*************** MAP ***************/
 .map { margin: 10rem 0 3rem 0; }
 .map iframe { width: 44rem; height: 22.5rem; }
@@ -176,6 +190,19 @@ p { line-height: 1.3rem; }
 .map > div > div > div { display: flex; align-items: center; margin-bottom: 1rem; }
 .map p { margin: 0; max-width: 18rem; white-space: nowrap; }
 .map img { height: 1rem; margin-right: 1rem; }
+
+/*************** STATS ***************/
+.stats { margin: 3rem 0; }
+.stats h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin: 3rem 0; width: 100%; }
+.stats > div { display: flex; justify-content: space-between; flex-wrap: wrap; }
+.stats > div > div { position: relative; display: flex; margin-right: 8rem; }
+.stats p { position: absolute; top: 0; text-transform: uppercase;
+    max-width: 10rem; }
+.stats p.first { left: 8rem; }
+.stats p.second { left: 14rem; }
+.stats p.third { left: 10rem; }
+.stats h6 { font-size: 9rem; font-weight: 900; color: #c8c3c0; }
 
 /*************** FOOTER ***************/
 .footer { background: #222; padding-top: 5rem; padding-bottom: 5rem; }
@@ -193,7 +220,8 @@ p { line-height: 1.3rem; }
 .overlay { width: 100%; height: 100vh; z-index: 8; position: fixed; top: 0;
     background: #222; display: none; align-items: center; justify-content: center;
     flex-direction: column; }
-.overlay a { margin: .5rem 0; color: #fff; text-decoration: none; font-weight: 900; }
+.overlay a { margin: .5rem 0; color: #fff; text-decoration: none;
+    text-transform: uppercase }
 .overlay.open { display: flex; }
 
 #nav-icon4 { width: 60px; height: 45px; position: relative;
@@ -233,26 +261,33 @@ p { line-height: 1.3rem; }
 
 /*********** MEDIA QUERIES ************/
 @media screen and (max-width: 1300px) {
+    .stats > div > div { margin-right: 6rem; }
+    .grid h3 { font-size: 1rem; }
     .container > div { width: 65rem; }
     .callback form { width: 38rem; }
     .callback input, .callback button.btn, .order input,
     .order button.btn { width: 18rem; }
     .map iframe { width: 37rem; }
+    .grid > div > div { width: 20rem; }
 
     p, .btn, .navbar > div > div > a, .callback p, .problems p,
     .advantages p { font-size: 1rem; }
     .callback h1, .problems h1, .advantages h1, .trusts h1,
-    .order h1, .map h1 { font-size: 2rem; }
+    .order h1, .map h1, .grid h1, .stats h1 { font-size: 2rem; }
     .hero h1 { font-size: 4rem; }
     .hero h2 { font-size: 1.8rem; }
 }
 
 @media screen and (max-width: 1100px) {
+    .grid > div > div { width: 17rem; }
+    .stats h6 { font-size: 7rem; }
+    .stats p.first { left: 6rem; }
+    .stats p.second { left: 11rem; }
+    .stats p.third { left: 7.5rem; }
     p { font-size: .9rem; }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
     .hero h2 { font-size: 1.4rem; max-width: 25rem; }
     .order .text { width: 33rem; }
-    
 
     .hero { height: 29rem; }
     .prehero { height: 5.4rem; }
@@ -270,7 +305,15 @@ p { line-height: 1.3rem; }
     .footer { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 }
 
+@media screen and (max-width: 1000px) {
+    .stats > div > div { margin-right: 4rem; }
+    .stats p.second { left: 9.5rem; }
+}
+
 @media screen and (max-width: 900px) {
+    .grid > div > div { width: 18rem; }
+    .grid { margin: 5rem 0 0 0; }
+    
     .map { margin: 4rem 0 3rem 0 }
     .map iframe { margin-top: 2rem; }
     .menu.foot, .hamburger { display: block; }
@@ -308,6 +351,9 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 700px) {
+    .stats { margin: 0; }
+    .grid > div > div { width: 14rem; }
+
     .map iframe { width: 100%; }
     .container > div { width: 32rem; }
     .callback form, .order form { width: 25rem; }
@@ -323,12 +369,12 @@ p { line-height: 1.3rem; }
     .callback form, .order form, .order > div { justify-content: center; }
     .trusts .controls { flex-direction: row; }
 
-    .order h1, .callback h1, .callback p.sub, .order p.sub,
+    .order h1, .callback h1, .callback p.sub, .order p.sub, .grid h1, .stats h1,
     .problems h1, .problems p, .advantages h1, .trusts h1{ text-align: center; }
     
     .hero h1 { font-size: 2rem; }
     .callback h1, .problems h1, .advantages h1, .trusts h1,
-    .order h1 { font-size: 1.5rem }
+    .order h1, .stats h1, .grid h1 { font-size: 1.5rem }
     .callback > div { align-items: center; }
     .callback input, .order input { margin-right: 0; } 
 }
@@ -338,6 +384,7 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 500px) {
+    .grid > div > div { width: 100%; }
     .container > div, .advantages > div > img, .hero img { width: 18rem; }
     .callback input, .callback button.btn, .order input,
     .order button.btn { width: 16rem; }
