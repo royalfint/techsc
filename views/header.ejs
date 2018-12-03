@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <title>Tech Stroy Consulting | <%= page %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" thpe="image/png" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <section id="topmenu" class="topmenu container shadow">
+        <div>
+            <div>
+                <img src="svg/location.svg">
+                <p>г.Астана, Кургальжинское шоссе<br>13/2, офис 302</p>
+            </div>
+            <div>
+                <img src="svg/envelope.svg">
+                <p>info@techsc.kz</p>
+            </div>
+            <div>
+                <img class="phonetop" src="svg/phone.svg">
+                <p class="phonetop">+7 (700) 345 56 78</p>
+            </div>
+            <div>
+                <button class="btn btn-yellow">Перезвоните мне</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="overlay" id="overlay">
+        <a href="/">Главная</a>
+        <a href="#">Портфолио</a>
+        <a href="#">Аккредитация</a>
+        <a href="#">О Нас</a>
+        <a href="#">Блог</a>
+        <a href="/contacts">Контакты</a>
+    </div>
+
+    <% if(light) { %>
+        <section class="navbar container light" id="menu">
+    <% } else { %>
+        <section class="navbar container" id="menu">
+    <% } %>
+        <div>
+            <div>
+                <% if(light) { %>
+                    <img src="svg/logo.svg" alt="">
+                <% } else { %>
+                    <img src="svg/logo-white.svg" alt="">
+                <% } %>
+            </div>
+            <div>
+                <% if(page === "Главная") { %>
+                    <a href="#" class="active">Главная</a>
+                <% } else { %>
+                    <a href="/">Главная</a>
+                <% } if(page === "Портфолио") { %>
+                    <a href="#" class="active">Портфолио</a>
+                <% } else { %>
+                    <a href="/portfolio">Портфолио</a>
+                <% } if(page === "Аккредитация") { %>
+                    <a href="#" class="active">Аккредитация</a>
+                <% } else { %>
+                    <a href="#">Аккредитация</a>
+                <% } if(page === "О Нас") { %>
+                    <a href="#" class="active">О Нас</a>
+                <% } else { %>
+                    <a href="/about">О Нас</a>
+                <% } if(page === "Блог") { %>
+                    <a href="#" class="active">Блог</a>
+                <% } else { %>
+                    <a href="/blog">Блог</a>
+                <% } if(page === "Контакты") { %>
+                    <a href="#" class="active">Контакты</a>
+                <% } else { %>
+                    <a href="/contacts">Контакты</a>
+                <% } %>
+                <div class="hamburger">
+                    <div id="nav-icon4">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

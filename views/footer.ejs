@@ -1,0 +1,82 @@
+ <section class="footer container">
+        <div>
+            <div>
+                <img src="svg/location-white.svg" alt="">
+                <p>ТОО “Техстройконсалтинг”<br>Все права защищены.</p>
+            </div>
+            <div>
+                <img src="svg/envelope-white.svg" alt="">
+                <p>info@techsc.kz</p>
+            </div>
+            <div>
+                <img class="phonetop" src="svg/phone-white.svg" alt="">
+                <p class="phonetop">+7 (700) 345 56 78</p>
+            </div>
+            <div>
+                <p class="copy">Сайт создан студией <a href="https://www.mangi.kz" target="_blank">mangi.kz</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var last_known_scroll_position = 0;
+        var ticking = false;
+        var isopen = false;
+        var x;
+        var topmenu;
+
+        function doSomething(scroll_pos) {
+            var rast = topmenu.clientHeight + 15;
+            if (scroll_pos > rast) {         
+                x.classList.add("blacked");
+            } else {
+                x.classList.remove("blacked");
+            }
+        }
+
+        function goto(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            x = document.getElementById("menu");
+            topmenu = document.getElementById("topmenu");
+            var menu = document.getElementById("nav-icon4");
+            var overlay = document.getElementById("overlay");
+            var loader = document.getElementById("loader");
+            menu.onclick = function (e) {
+                if (!isopen) {
+                    menu.classList.add("open");
+                    x.classList.add("open");
+                    overlay.classList.add("open");
+                    isopen = true;
+                } else {
+                    menu.classList.remove("open");
+                    x.classList.remove("open");
+                    overlay.classList.remove("open");
+                    isopen = false;
+                }
+            };
+            setTimeout(() => {
+                loader.classList.add("loaded");
+                setTimeout(() => {
+                    loader.style.display = "none";
+                }, 500)
+            }, 1000);
+        });
+
+        window.addEventListener('scroll', function (e) {
+            last_known_scroll_position = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    doSomething(last_known_scroll_position);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    </script>
+</body>
+
+</html>

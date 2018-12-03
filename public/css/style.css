@@ -58,10 +58,20 @@ p { line-height: 1.3rem; }
 .navbar a.active { -webkit-box-shadow: 0px 3px 0px 0px #fff; 
     -moz-box-shadow: 0px 3px 0px 0px #fff; box-shadow: 0px 3px 0px 0px #fff; }
 
+.navbar.light > div > div a { color: #222; }
+.navbar.light a.active { -webkit-box-shadow: 0px 3px 0px 0px #222; 
+    -moz-box-shadow: 0px 3px 0px 0px #222; box-shadow: 0px 3px 0px 0px #222; }
+.navbar.light #nav-icon4 span { background: #222; }
+
 #menu.blacked { position: fixed; top: 0; background: #222; }
 #menu.blacked img { padding-top: 1rem; padding-bottom: 1rem; }
 #menu.blacked .hamburger { top: .75rem; }
+#menu.blacked > div > div a { color: #fff; }
+#menu.blacked a.active { -webkit-box-shadow: 0px 3px 0px 0px #fff; 
+    -moz-box-shadow: 0px 3px 0px 0px #fff; box-shadow: 0px 3px 0px 0px #fff; }
+#menu.blacked #nav-icon4 span { background: #fff; }
 #menu.open img { opacity: 0; }
+#menu.open.light #nav-icon4 span { background: #fff; }
 
 /*************** PRE HERO ***************/
 .prehero { height: 8.4rem; background: #ff0000; width: 100%; }
@@ -138,18 +148,34 @@ p { line-height: 1.3rem; }
 
 /*************** ORDER ***************/
 .order h1 { color: #fff; text-transform: uppercase; font-size: 2.25rem;
-    font-weight: 900; margin-bottom: 2rem; margin-top: 5rem; }
+    font-weight: 900; margin-bottom: 2rem; margin-top: 5rem; z-index: 3;
+    position: relative; }
 .order { background: #ff0000; }
 .order > div { display: flex; align-items: flex-end; position: relative; }
 .order img { width: 20rem; position: absolute; right: 0; width: 22rem; }
 .order p { color: #fff; font-size: 1.125rem; margin-bottom: .5rem; }
 .order p.sub { margin-bottom: 2rem;  }
-.order input { border: 3px solid #222; font-size: 1.125rem; width: 22.5rem;
-    padding: .75rem 1rem; outline: none; margin-bottom: 1.5rem; margin-right: 1rem; 
-    background: transparent; color: #222; z-index: 2; position: relative; }
+.order input, .order textarea { border: 3px solid #222; font-size: 1.125rem; 
+    width: 22.5rem; padding: .75rem 1rem; outline: none; margin-bottom: 1.5rem; 
+    margin-right: 1rem;  background: transparent; color: #222; z-index: 2;
+    position: relative; }
+.order textarea { width: 100%; }
+.order .text { width: 46rem; }
+.order.long > div { align-items: center; }
 .order form {  display: flex; flex-wrap: wrap;
     align-items: center; width: 50rem; }
 .order button.btn { width: 22.5rem; margin-bottom: 4.5rem; }
+
+/*************** MAP ***************/
+.map { margin: 10rem 0 3rem 0; }
+.map iframe { width: 44rem; height: 22.5rem; }
+.map > div { display: flex; justify-content: space-between; }
+.map > div > div { display: flex; flex-direction: column; }
+.map h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin: 3rem 0; width: 100%; }
+.map > div > div > div { display: flex; align-items: center; margin-bottom: 1rem; }
+.map p { margin: 0; max-width: 18rem; white-space: nowrap; }
+.map img { height: 1rem; margin-right: 1rem; }
 
 /*************** FOOTER ***************/
 .footer { background: #222; padding-top: 5rem; padding-bottom: 5rem; }
@@ -211,11 +237,12 @@ p { line-height: 1.3rem; }
     .callback form { width: 38rem; }
     .callback input, .callback button.btn, .order input,
     .order button.btn { width: 18rem; }
+    .map iframe { width: 37rem; }
 
     p, .btn, .navbar > div > div > a, .callback p, .problems p,
     .advantages p { font-size: 1rem; }
     .callback h1, .problems h1, .advantages h1, .trusts h1,
-    .order h1 { font-size: 2rem; }
+    .order h1, .map h1 { font-size: 2rem; }
     .hero h1 { font-size: 4rem; }
     .hero h2 { font-size: 1.8rem; }
 }
@@ -224,6 +251,8 @@ p { line-height: 1.3rem; }
     p { font-size: .9rem; }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
     .hero h2 { font-size: 1.4rem; max-width: 25rem; }
+    .order .text { width: 33rem; }
+    
 
     .hero { height: 29rem; }
     .prehero { height: 5.4rem; }
@@ -232,6 +261,7 @@ p { line-height: 1.3rem; }
     .hero img { right: 1rem; width: 32rem; }
     .advantages > div > img { width: 20rem; }
     .callback img, .order img, .callback input, .order input { width: 16rem; }
+    .order.long img { width: 22rem; }
     .trusts > div > div > div > img { width: 10.9rem; }
     .circles img { width: 5.625rem; }
 
@@ -241,7 +271,10 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 900px) {
+    .map { margin: 4rem 0 3rem 0 }
+    .map iframe { margin-top: 2rem; }
     .menu.foot, .hamburger { display: block; }
+    .map > div { flex-direction: column; }
 
     .container > div, .order form  { width: 40rem; }
     .hero img { width: 25rem; }
@@ -275,27 +308,33 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 700px) {
-    .container > div, { width: 32rem; }
+    .map iframe { width: 100%; }
+    .container > div { width: 32rem; }
     .callback form, .order form { width: 25rem; }
     .callback p.sub, .order p.sub { max-width: 20rem; }
     .trusts > div > div > div { width: 20rem; margin-bottom: .5rem }
     .trusts > div > div > div > img { width: 11rem; }
     .circles img { width: 5rem; }
+    .order .text { width: 16rem; }
 
     .trusts > div > div { flex-direction: column; align-items: center; }
     .order > div > div, .callback > div > div { display: flex; flex-direction: column;
         align-items: center; }
-    .callback form, .order form { justify-content: center; }
+    .callback form, .order form, .order > div { justify-content: center; }
     .trusts .controls { flex-direction: row; }
 
     .order h1, .callback h1, .callback p.sub, .order p.sub,
-    .problems h1, .problems p, .advantages h1, .trusts h1{ text-align: center;}
+    .problems h1, .problems p, .advantages h1, .trusts h1{ text-align: center; }
     
     .hero h1 { font-size: 2rem; }
     .callback h1, .problems h1, .advantages h1, .trusts h1,
     .order h1 { font-size: 1.5rem }
+    .callback > div { align-items: center; }
+    .callback input, .order input { margin-right: 0; } 
+}
 
-    p.phonetop, img.phonetop { margin-top: 1rem ; }
+@media screen and (max-width: 570px) {
+    p.phonetop, img.phonetop { margin-top: 1rem; }
 }
 
 @media screen and (max-width: 500px) {
@@ -312,7 +351,7 @@ p { line-height: 1.3rem; }
 
     .hero img { top: 0; right: 0; }
     .navbar { top: 12.6rem; }
-    .callback input, .order input, .problems img { margin-right: 0; }
+    .problems img { margin-right: 0; }
     .problems p, .advantages p{ padding-right: 0; }
     .topmenu { padding-bottom: 0; }
     .footer { padding-bottom: 1rem; }
