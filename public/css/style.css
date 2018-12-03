@@ -1,0 +1,324 @@
+/************** CSS RESET *************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%;
+    font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/*************** GENERAL ***************/
+@font-face { font-family: Muller;
+    src: url("../fonts/MullerRegular.otf") format("opentype"); }
+@font-face { font-family: Muller; font-weight: bold;
+    src: url("../fonts/MullerBold.otf") format("opentype"); }
+
+body { margin: 0; padding: 0; font-family: Muller; font-size: 1.125rem; }
+.shadow { box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15); }
+p { line-height: 1.3rem; }
+.container { width: 100%; display: flex; justify-content: center; }
+.container > div { width: 72rem; padding-left: 1rem; padding-right: 1rem;
+    box-sizing: border-box; position: relative; }
+    
+/*************** TOP MENU ***************/
+.topmenu { background: #fff; padding-top: 1rem; padding-bottom: 1rem; }
+.topmenu > div { display: flex; justify-content: space-between; }
+.topmenu > div > div { display: flex; align-items: center; }
+.topmenu p { margin: 0; max-width: 18rem; white-space: nowrap; }
+.topmenu img { height: 1rem; margin-right: 1rem; }
+
+/*************** BTNs ***************/
+.btn { padding: 1rem 1.5rem; font-size: 1.125rem; border: 0; outline: none; }
+.btn-yellow { background: #ffcf23; text-transform: uppercase; color: #222;
+    transition: all .3s ease; cursor: pointer; }
+.btn-yellow:hover { background: #fee27c; }
+
+/*************** NAVBAR ***************/
+.navbar { position: absolute; top: 5.3rem; left: 0; z-index: 9; 
+    transition: background .3s ease; }
+.navbar > div { display: flex; justify-content: space-between; align-items: center; }
+.navbar img { height: 4.125rem; padding-top: 1.75rem; padding-bottom: 1.75rem; }
+.navbar > div > div > a { color: #fff; text-decoration: none;
+    text-transform: uppercase; margin-left: 2rem; }
+.navbar a.active { -webkit-box-shadow: 0px 3px 0px 0px #fff; 
+    -moz-box-shadow: 0px 3px 0px 0px #fff; box-shadow: 0px 3px 0px 0px #fff; }
+
+#menu.blacked { position: fixed; top: 0; background: #222; }
+#menu.blacked img { padding-top: 1rem; padding-bottom: 1rem; }
+#menu.blacked .hamburger { top: .75rem; }
+#menu.open img { opacity: 0; }
+
+/*************** PRE HERO ***************/
+.prehero { height: 8.4rem; background: #ff0000; width: 100%; }
+
+/*************** HERO ***************/
+.hero { background: #ff0000; height: 36.25rem; }
+.hero > div { display: flex; justify-content: center; flex-direction: column; 
+    position: relative; z-index: 0;}
+.hero h1 { color: #fff; text-transform: uppercase; font-size: 4.5rem; margin: 0;
+    z-index: 1; margin-bottom: 2rem; font-weight: 900; }
+.hero h2 { color: #fff; font-size: 2rem; margin: 0; font-weight: 300; z-index: 1;
+    max-width: 37.5rem; }
+.hero img { position: absolute; right: 0; width: 42rem; }
+
+/*************** CIRCLES ***************/
+.circles { background: #ff0000; padding-bottom: 3.25rem; }
+.circles > div { display: flex; justify-content: space-between; }
+.circles > div > div { display: flex; align-items: flex-end; max-width: 33%; }
+.circles p { color: #fff; background: #ff0000; position: relative; left: -1rem;
+    padding: .5rem; bottom: -.5rem; white-space: nowrap; }
+.circles img { width: 8.5625rem; }
+
+/*************** CALLBACK ***************/
+.callback { margin: 5.25rem 0 3rem 0; }
+.callback > div { display: flex; align-items: flex-end; }
+.callback img { width: 22rem; }
+.callback h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin-bottom: 2rem; padding-left: 2rem; }
+.callback p { color: #222; font-size: 1.125rem; margin-bottom: .5rem; }
+.callback p.sub { margin-bottom: 2rem; padding-left: 2rem; }
+.callback input { border: 3px solid #c8c3c0; font-size: 1.125rem; width: 22.5rem;
+    padding: .75rem 1rem; outline: none; margin-bottom: 1.5rem; margin-right: 1rem;
+    color: #222; }
+.callback form { padding-left: 2rem; display: flex; flex-wrap: wrap;
+    align-items: center; width: 50rem; box-sizing: border-box; }
+.callback button.btn { width: 22.5rem; margin-bottom: 2.5rem; }
+
+/*************** PROBLEMS ***************/
+.problems > div { display: flex; flex-wrap: wrap; }
+.problems h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin: 3rem 0; width: 100%; }
+.problems > div > div { display: flex; width: 50%; margin-bottom: 2rem; }
+.problems > div > div > div { display: flex; flex-direction: column; }
+.problems img { height: 4rem; }
+.problems p { margin-bottom: .5rem; margin-left: 2rem; font-size: 1.125rem; 
+    padding-right: 1.5rem; }
+.problems b { font-weight: 900; }
+
+/*************** ADVANTAGES ***************/
+.advantages { margin: 3.5rem 0 3rem 0; }
+.advantages > div { display: flex; justify-content: space-between; align-items: center; }
+.advantages h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin: 0 0 3rem 0; width: 100%; }
+.advantages > div > div > div img { height: 2rem; }
+.advantages p { font-size: 1.125rem; margin-left: 1.25rem; padding-right: 1rem;
+    box-sizing: border-box; }
+.advantages > div > div > div > div { display: flex; align-items: center;
+    margin-bottom: 1.2rem;}
+.advantages > div > img { width: 31rem; }
+
+/*************** TRUSTS ***************/
+.trusts > div { display: flex; flex-direction: column; margin: 0 0 1rem 0; }
+.trusts > div > div { display: flex; justify-content: space-between; }
+.trusts > div > div > div { display: flex; flex-direction: column; width: 32%; 
+    border: 3px solid #c8c3c0; justify-content: center; align-items: center;
+    padding: 2rem 1rem; box-sizing: border-box; }
+.trusts h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin: 3rem 0; width: 100%; }
+.trusts .controls { justify-content: center; margin-bottom: 3rem; }
+.trusts .controls button { background: #ff0000; }
+.trusts .controls img { height: 1.5rem; }
+.trusts > div > div > div > img { width: 17.9rem; }
+.trusts .div { height: 1px; width: 1rem; background: gray; margin: 1.5rem 0 1rem 0; }
+
+/*************** ORDER ***************/
+.order h1 { color: #fff; text-transform: uppercase; font-size: 2.25rem;
+    font-weight: 900; margin-bottom: 2rem; margin-top: 5rem; }
+.order { background: #ff0000; }
+.order > div { display: flex; align-items: flex-end; position: relative; }
+.order img { width: 20rem; position: absolute; right: 0; width: 22rem; }
+.order p { color: #fff; font-size: 1.125rem; margin-bottom: .5rem; }
+.order p.sub { margin-bottom: 2rem;  }
+.order input { border: 3px solid #222; font-size: 1.125rem; width: 22.5rem;
+    padding: .75rem 1rem; outline: none; margin-bottom: 1.5rem; margin-right: 1rem; 
+    background: transparent; color: #222; z-index: 2; position: relative; }
+.order form {  display: flex; flex-wrap: wrap;
+    align-items: center; width: 50rem; }
+.order button.btn { width: 22.5rem; margin-bottom: 4.5rem; }
+
+/*************** FOOTER ***************/
+.footer { background: #222; padding-top: 5rem; padding-bottom: 5rem; }
+.footer > div { display: flex; justify-content: space-between; }
+.footer img { height: 1.125rem; }
+.footer > div > div { display: flex; align-items: center;
+    padding-right: 1rem; box-sizing: border-box; }
+.footer p { color: #fff; margin-left: 1rem; white-space: nowrap; }
+.footer p a { color: #fff; }
+
+/************* HAMBURGER **************/
+.hamburger { transform: scale(.55); position: absolute; right: .3rem; top: 1.55rem;
+    z-index: 9; display: none; }
+
+.overlay { width: 100%; height: 100vh; z-index: 8; position: fixed; top: 0;
+    background: #222; display: none; align-items: center; justify-content: center;
+    flex-direction: column; }
+.overlay a { margin: .5rem 0; color: #fff; text-decoration: none; font-weight: 900; }
+.overlay.open { display: flex; }
+
+#nav-icon4 { width: 60px; height: 45px; position: relative;
+    -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg); transform: rotate(0deg); outline: none;
+    -webkit-transition: .5s ease-in-out; -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out; transition: .5s ease-in-out; cursor: pointer; }
+      
+#nav-icon4 span { display: block; position: absolute; height: 4px; width: 100%;
+    background: #fff; border-radius: 0; opacity: 1; left: 0;
+    -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg); transform: rotate(0deg); outline: none;
+    -webkit-transition: .25s ease-in-out; -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out; transition: .25s ease-in-out; }
+    
+#nav-icon4 span:nth-child(1) { top: 0px; -webkit-transform-origin: left center;
+    -moz-transform-origin: left center; -o-transform-origin: left center;
+    transform-origin: left center; outline: none;}
+    
+#nav-icon4 span:nth-child(2) { top: 18px; -webkit-transform-origin: left center;
+    -moz-transform-origin: left center; -o-transform-origin: left center;
+    transform-origin: left center; outline: none;}
+    
+#nav-icon4 span:nth-child(3) { top: 36px; -webkit-transform-origin: left center;
+    -moz-transform-origin: left center; -o-transform-origin: left center;
+    transform-origin: left center; outline: none; }
+    
+#nav-icon4.open span:nth-child(1) { -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg); -o-transform: rotate(45deg); 
+    transform: rotate(45deg); top: -3px; left: 8px; }
+    
+#nav-icon4.open span:nth-child(2) { width: 0%; opacity: 0; }
+    
+#nav-icon4.open span:nth-child(3) { -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); top: 39px; left: 8px; }
+
+/*********** MEDIA QUERIES ************/
+@media screen and (max-width: 1300px) {
+    .container > div { width: 65rem; }
+    .callback form { width: 38rem; }
+    .callback input, .callback button.btn, .order input,
+    .order button.btn { width: 18rem; }
+
+    p, .btn, .navbar > div > div > a, .callback p, .problems p,
+    .advantages p { font-size: 1rem; }
+    .callback h1, .problems h1, .advantages h1, .trusts h1,
+    .order h1 { font-size: 2rem; }
+    .hero h1 { font-size: 4rem; }
+    .hero h2 { font-size: 1.8rem; }
+}
+
+@media screen and (max-width: 1100px) {
+    p { font-size: .9rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero h2 { font-size: 1.4rem; max-width: 25rem; }
+
+    .hero { height: 29rem; }
+    .prehero { height: 5.4rem; }
+
+    .order input { width: 34rem; }
+    .hero img { right: 1rem; width: 32rem; }
+    .advantages > div > img { width: 20rem; }
+    .callback img, .order img, .callback input, .order input { width: 16rem; }
+    .trusts > div > div > div > img { width: 10.9rem; }
+    .circles img { width: 5.625rem; }
+
+    .order img { right: 1rem; }
+
+    .footer { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+}
+
+@media screen and (max-width: 900px) {
+    .menu.foot, .hamburger { display: block; }
+
+    .container > div, .order form  { width: 40rem; }
+    .hero img { width: 25rem; }
+    .hero { height: 18rem; }
+    .prehero { height: 6rem; }
+    .navbar img { height: 2.5rem; }
+    .circles > div > div { max-width: 50%; }
+    .trusts > div > div > div > img { width: 9rem; }
+
+    .callback form, .callback h1, .callback p.sub { padding-left: 0rem; }
+
+    .navbar > div > div > a, .order img { display: none; }
+
+    .circles > div { align-items: center; flex-wrap: wrap;
+        justify-content: space-around; }
+    .topmenu > div, .footer > div { flex-wrap: wrap; }
+    .problems > div > div, .callback > div { flex-direction: column; }
+    .callback img { align-self: center; margin-bottom: 3rem; }
+    .advantages > div { flex-direction: column-reverse; }
+    
+    .problems img { margin-bottom: 1rem; margin-right: 2rem; }
+    .problems p { margin-left: 0; }
+    .circles img { margin-top: 2rem; }
+    .topmenu .btn { margin-top: 1rem; align-self: flex-end; }
+    .navbar { top: 8rem; }
+    .problems h1 { margin-top: 0; }
+    .advantages { margin: 2rem 0 0 0; }
+    .footer p.copy { margin-top: 1rem; margin-left: 0; }
+    .advantages > div > img { margin-bottom: 4rem; align-self: center; }
+    .callback { margin: 3.5rem 0 2rem 0; }
+}
+
+@media screen and (max-width: 700px) {
+    .container > div, { width: 32rem; }
+    .callback form, .order form { width: 25rem; }
+    .callback p.sub, .order p.sub { max-width: 20rem; }
+    .trusts > div > div > div { width: 20rem; margin-bottom: .5rem }
+    .trusts > div > div > div > img { width: 11rem; }
+    .circles img { width: 5rem; }
+
+    .trusts > div > div { flex-direction: column; align-items: center; }
+    .order > div > div, .callback > div > div { display: flex; flex-direction: column;
+        align-items: center; }
+    .callback form, .order form { justify-content: center; }
+    .trusts .controls { flex-direction: row; }
+
+    .order h1, .callback h1, .callback p.sub, .order p.sub,
+    .problems h1, .problems p, .advantages h1, .trusts h1{ text-align: center;}
+    
+    .hero h1 { font-size: 2rem; }
+    .callback h1, .problems h1, .advantages h1, .trusts h1,
+    .order h1 { font-size: 1.5rem }
+
+    p.phonetop, img.phonetop { margin-top: 1rem ; }
+}
+
+@media screen and (max-width: 500px) {
+    .container > div, .advantages > div > img, .hero img { width: 18rem; }
+    .callback input, .callback button.btn, .order input,
+    .order button.btn { width: 16rem; }
+    .circles > div > div { max-width: 100%; }
+    .problems > div > div, .trusts > div > div > div { width: 100%; }
+    .callback form, .order form { width: 16rem; }
+    .advantages > div > div > div img { height: 1rem; }
+
+    .hero h1 { font-size: 1.5rem; }
+    .hero h2 { font-size: 1.2rem; }
+
+    .hero img { top: 0; right: 0; }
+    .navbar { top: 12.6rem; }
+    .callback input, .order input, .problems img { margin-right: 0; }
+    .problems p, .advantages p{ padding-right: 0; }
+    .topmenu { padding-bottom: 0; }
+    .footer { padding-bottom: 1rem; }
+    .topmenu .phonetop, .topmenu .btn, .footer .phonetop, .footer p.copy { margin-top: 0; }
+    .topmenu > div > div, .footer > div > div { margin-bottom: 1rem; }
+    
+    .circles > div { flex-direction: column; align-items: flex-start; }
+    .hero > div { justify-content: flex-end; }
+}
