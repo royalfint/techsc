@@ -1,7 +1,12 @@
 var express = require("express"),
-    parser  = require("body-parser");
+    parser  = require("body-parser"),
+    sender  = require("@sendgrid/mail");
 
-var app = express();
+var app = express(),
+    api = "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",
+    adminEmail = "royalfint@hotmail.com";
+
+sender.setApiKey(api);
 app.use(parser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.static('public'));
@@ -35,8 +40,16 @@ app.post("/callmeback", function(req, res) {
    
    if(!phone || phone.length < 8)
       return res.send(JSON.stringify({data: 0, message: "Введите правильный номер!"}));
-   else
+   else {
+      const msg = {
+         to: adminEmail,
+         from: 'inbox@techsc.kz',
+         subject: 'Запрос обратного звонка на TechSC.kz',
+         html: 'Телефон: ' + phone,
+      };
+      sender.send(msg);
       res.send(JSON.stringify({data: 1}));
+   }
 });
 
 app.post("/getconsult", function(req, res) {
@@ -49,6 +62,14 @@ app.post("/getconsult", function(req, res) {
    if(!email || !validateEmail(email))
       return res.send(JSON.stringify({data: 0, message: "Введите правильный e-mail!"}));
    
+   const msg = {
+      to: adminEmail,
+      from: 'inbox@techsc.kz',
+      subject: 'Запрос на косультацию на TechSC.kz',
+      html: 'Имя: ' + name + '<br>E-mail: ' + email,
+   };
+   sender.send(msg);
+      
    res.send(JSON.stringify({data: 1}));
 });
 
@@ -65,6 +86,14 @@ app.post("/getcom", function(req, res) {
       
    if(!desc || desc.length < 3)
       return res.send(JSON.stringify({data: 0, message: "Введите описание проекта!"}));
+      
+   const msg = {
+      to: adminEmail,
+      from: 'inbox@techsc.kz',
+      subject: 'Запрос на КП на TechSC.kz',
+      html: 'Имя: ' + name + '<br>E-mail: ' + email + '<br>Описание: ' + desc,
+   };
+   sender.send(msg);
    
    res.send(JSON.stringify({data: 1}));
 });

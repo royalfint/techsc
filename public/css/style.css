@@ -167,7 +167,8 @@ p { line-height: 1.3rem; }
 .trusts h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
     font-weight: 900; margin: 3rem 0; width: 100%; }
 .trusts .controls { justify-content: center; margin-bottom: 3rem; }
-.trusts .controls button { background: #ff0000; }
+.trusts .controls button { background: #ff0000; transition: all .3s ease; }
+.trusts .controls button:hover { background: #d40202; }
 .trusts .controls img { height: 1.5rem; }
 .trusts > div > div > div > img { width: 17.9rem; }
 .trusts .div { height: 1px; width: 1rem; background: gray; margin: 1.5rem 0 1rem 0; }
