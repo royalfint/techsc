@@ -1,6 +1,8 @@
-var express = require("express");
+var express = require("express"),
+    parser  = require("body-parser");
 
 var app = express();
+app.use(parser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 
@@ -26,6 +28,15 @@ app.get("/certificates", function(req, res) {
 
 app.get("/contacts", function(req, res) {
    res.render("contacts", {light: true, page: "Контакты"}); 
+});
+
+app.post("/callmeback", function(req, res) {
+   var phone = req.body.phone;
+   
+   if(!phone || phone.length < 8)
+      return res.send(JSON.stringify({data: 0, message: "Введите правильный номер!"}));
+   else
+      res.send(JSON.stringify({data: 1}));
 });
 
 app.listen(process.env.PORT, process.env.IP, function() {

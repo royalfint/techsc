@@ -34,13 +34,33 @@ p { line-height: 1.3rem; }
 .container { width: 100%; display: flex; justify-content: center; }
 .container > div { width: 72rem; padding-left: 1rem; padding-right: 1rem;
     box-sizing: border-box; position: relative; }
-    
+
 /*************** TOP MENU ***************/
 .topmenu { background: #fff; padding-top: 1rem; padding-bottom: 1rem; }
 .topmenu > div { display: flex; justify-content: space-between; }
 .topmenu > div > div { display: flex; align-items: center; }
 .topmenu p { margin: 0; max-width: 18rem; white-space: nowrap; }
 .topmenu img { height: 1rem; margin-right: 1rem; }
+
+/************ CALL ME POPUP ************/
+
+.callmepopup { display: flex; justify-content: center; align-items: center; 
+    width: 100%; top: 0; left: 0; height: 100vh; box-sizing: border-box;
+    position: fixed; background: rgba(0,0,0,0.7); transition: all .3s ease;
+    z-index: 10; opacity: 1; }
+.callmepopup form { background: #fff; padding: 2rem; display: flex;
+    flex-direction: column; }
+.callmepopup input { border: 3px solid #c8c3c0; font-size: 1.125rem; width: 22.5rem;
+    padding: .75rem 1rem; outline: none; margin-bottom: 1rem;
+    color: #222; box-sizing: border-box; }
+.callmepopup p { color: #222; font-size: 1.125rem; margin-bottom: .5rem; }
+.callmepopup .success { padding: 1.25rem; background: #d4edda;
+    border: 1px solid #c3e6cb; color: #155724; margin: 1rem 0 0 0; font-size: 1.125rem;
+    display: none; max-width: 20rem; }
+#callmeerror { border-color: red; background: pink; color: red; }
+.callmepopup .success.show { display: flex; }
+.callmepopup.transparent { opacity: 0; }
+.callmepopup.closed { display: none; }
 
 /*************** BTNs ***************/
 .btn { padding: 1rem 1.5rem; font-size: 1.125rem; border: 0; outline: none; }
@@ -384,6 +404,7 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 500px) {
+    .callmepopup form, .callmepopup input { width: 17rem; }
     .grid > div > div { width: 100%; }
     .container > div, .advantages > div > img, .hero img { width: 18rem; }
     .callback input, .callback button.btn, .order input,

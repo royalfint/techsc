@@ -17,7 +17,8 @@
             </div>
         </div>
     </section>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
         var last_known_scroll_position = 0;
         var ticking = false;
@@ -40,11 +41,15 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            x = document.getElementById("menu");
-            topmenu = document.getElementById("topmenu");
-            var menu = document.getElementById("nav-icon4");
             var overlay = document.getElementById("overlay");
-            var loader = document.getElementById("loader");
+            x =           document.getElementById("menu");
+            topmenu =     document.getElementById("topmenu");
+            var loader =  document.getElementById("loader");
+            var cmb =     document.getElementById("callmeback");
+            var cmp =     document.getElementById("callmepopup");
+            var menu =    document.getElementById("nav-icon4");
+            var box =     document.getElementById("box");
+            
             menu.onclick = function (e) {
                 if (!isopen) {
                     menu.classList.add("open");
@@ -58,12 +63,53 @@
                     isopen = false;
                 }
             };
+            
+            cmb.onclick = function(e) {
+                cmp.classList.remove("closed");
+                void cmp.offsetWidth;
+                cmp.classList.remove("transparent");
+            };
+            
+            cmp.onclick = function(e) {
+                if(!e.target.closest("#box")){
+                    cmp.classList.add("transparent");
+                    void cmp.offsetWidth;
+                    setTimeout(() => { cmp.classList.add("closed");  }, 300);
+                }
+            };
+            
             setTimeout(() => {
                 loader.classList.add("loaded");
                 setTimeout(() => {
                     loader.style.display = "none";
                 }, 500)
             }, 1000);
+            
+            $("#callmebacksubmit").click((e) => {
+                e.preventDefault();
+                $.ajax({
+                    url: "/callmeback",
+                    type: "POST",
+                    dataType: "json",
+                    data: {"phone": $("#phone").val() },
+                    success: function(data){
+                        console.log(data);
+                        $("#callmeresponse").removeClass("show");
+                        $("#callmeerror").removeClass("show");
+                        if(data.data === 1) {
+                            console.log("yaay");
+                            $("#callmeresponse").addClass("show");
+                        } else {
+                            $("#callmeerror").html(data.message);
+                            $("#callmeerror").addClass("show");
+                        }
+                    },
+                    error: function(error){
+                         console.log("Error:");
+                         console.log(error);
+                    }
+                });
+            });
         });
 
         window.addEventListener('scroll', function (e) {

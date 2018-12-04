@@ -1,14 +1,50 @@
 <html>
 
 <head>
-    <title>Tech Stroy Consulting | <%= page %></title>
+    <title>Тех Строй Консалтинг | <%= page %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
+        video { position: absolute; top: 0; left: 0; z-index: 0; width: 100%; }
+        p { line-height: 1.5rem; }
+        .loading p { margin-top: 1rem; font-size: 1.125rem; text-align: center; }
+        .loading img { height: 4rem; }
+        .line { position: absolute; bottom: 0; right: 0; width: 1rem; height: 1vh;
+            background: #ff0000; -webkit-animation: loads 1s forwards;
+            animation: loads 1s forwards; -moz-animation: loads 1s forwards; }
+        .loading.loaded { opacity: 0; }  
+        .loading { width: 100%; position: fixed; top: 0; left: 0; height: 100vh; 
+            background: #fff; z-index: 100; display: flex; justify-content: center;
+            align-items: center; flex-direction: column; transition: all .5s ease; }
+        
+        @-webkit-keyframes loads { from { height: 1vh; } to { height: 100vh; } }
+        @keyframes loads { from { height: 1vh; } to { height: 100vh; } }
+    </style>
     <link rel="shortcut icon" thpe="image/png" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
+    <div class="loading" id="loader">
+        <img src="svg/logo.svg">
+        <p style="color: #222;">Тех Строй Консалтинг</p>
+        <div class="line loads"></div>
+    </div>
+    
+    <div id="callmepopup" class="callmepopup closed transparent">
+        <form id="box">
+            <div>
+                <p>Введите свой номер</p>
+                <input type="number" id="phone" name="tel" placeholder="+77777777777">
+            </div>
+            <button id="callmebacksubmit" class="btn btn-yellow">Перезвоните мне</button>
+            <span id="callmeresponse" class="success">Ваша заявка успешно принята! Мы перезвоним в ближайшее время.</span>
+            <span id="callmeerror" class="success"></span>
+        </form>
+    </div>
+    
     <section id="topmenu" class="topmenu container shadow">
         <div>
             <div>
@@ -24,7 +60,7 @@
                 <p class="phonetop">+7 (700) 345 56 78</p>
             </div>
             <div>
-                <button class="btn btn-yellow">Перезвоните мне</button>
+                <button id="callmeback" class="btn btn-yellow">Перезвоните мне</button>
             </div>
         </div>
     </section>
