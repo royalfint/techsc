@@ -1,11 +1,14 @@
 var express = require("express"),
     parser  = require("body-parser"),
-    sender  = require("@sendgrid/mail");
+    sender  = require("@sendgrid/mail"),
+    secure  = require('ssl-express-www');
+
 
 var app = express(),
     api = "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",
     adminEmail = "royalfint@hotmail.com";
 
+app.use(secure);
 sender.setApiKey(api);
 app.use(parser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
