@@ -199,7 +199,15 @@ p { line-height: 1.3rem; }
 #callbackerror2, #comerror { border-color: red; background: pink; color: red; }
 .order .success.show { display: flex; }
 
-
+/***************** ZOOM ******************/
+.zoom { display: flex; justify-content: center; align-items: center; 
+    width: 100%; top: 0; left: 0; height: 100vh; box-sizing: border-box;
+    position: fixed; background: rgba(0,0,0,0.7); transition: all .3s ease;
+    z-index: 10; opacity: 1; cursor: zoom-out; }
+.zoom > div { width: 70rem; cursor: zoom-out; }
+.zoom img { width: 100%; cursor: zoom-out; pointer-events: none; }
+.zoom.closed { display: none; }
+.zoom.hidden { opacity: 0; }
 
 /*************** PORTFOLIO ***************/
 .grid h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
@@ -210,9 +218,10 @@ p { line-height: 1.3rem; }
 .grid > div img { width: 100%; }
 .grid p { color: #5d5d5d; margin-bottom: 1rem;}
 .grid h3 { font-size: 1.125rem; text-transform: uppercase; padding: 1.125rem 0;
-    white-space: nowrap; overflow-x: hidden; }
+    line-height: 1.4rem; }
 .grid h7 { width: 100%; margin-bottom: 1.5rem; }
-.grid button { width: 100%; background: #c8c3c0; color: #fff; }
+.grid button { width: 100%; background: #c8c3c0; color: #fff; cursor: pointer; }
+.grid button:hover { background: #b3aca8; }
 .grid.finished { margin: 2rem 0 2rem 0; }
 
 /*************** MAP ***************/

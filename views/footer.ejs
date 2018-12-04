@@ -47,6 +47,7 @@
             var loader =  document.getElementById("loader");
             var cmb =     document.getElementById("callmeback");
             var cmp =     document.getElementById("callmepopup");
+            var zoom =    document.getElementById("zoom");
             var menu =    document.getElementById("nav-icon4");
             var box =     document.getElementById("box");
             
@@ -99,8 +100,7 @@
                         if(data.data === 1) {
                             $("#callmeresponse").addClass("show");
                         } else {
-                            $("#callmeerror").html(data.message);
-                            $("#callmeerror").addClass("show");
+                            $("#callmeerror").html(data.message).addClass("show");
                         }
                     },
                     error: function(error){ console.log(error); }
@@ -121,8 +121,7 @@
                         if(data.data === 1) {
                             $("#callbackmsg").addClass("show");
                         } else {
-                            $("#callbackerror").html(data.message);
-                            $("#callbackerror").addClass("show");
+                            $("#callbackerror").html(data.message).addClass("show");
                         }
                   },
                   error: function(error) { console.log(error); }
@@ -143,12 +142,25 @@
                         if(data.data === 1) {
                             $("#callbackmsg2").addClass("show");
                         } else {
-                            $("#callbackerror2").html(data.message);
-                            $("#callbackerror2").addClass("show");
+                            $("#callbackerror2").html(data.message).addClass("show");
                         }
                   },
                   error: function(error) { console.log(error); }
                });
+            });
+            
+            $(".pic").click((e) => {
+                var img = $(e.currentTarget).attr("img");
+                $("#zoomimg").attr("src", img);
+                $("#zoom").removeClass("closed");
+                void zoom.offsetWidth;
+                $("#zoom").removeClass("hidden");
+            });
+            
+            $("#zoom").click((e) => {
+                $("#zoom").addClass("hidden");
+                void cmp.offsetWidth;
+                setTimeout(() => { $("#zoom").addClass("closed"); }, 300);
             });
             
             $("#getCom").click((e) => {
