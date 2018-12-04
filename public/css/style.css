@@ -126,8 +126,14 @@ p { line-height: 1.3rem; }
     padding: .75rem 1rem; outline: none; margin-bottom: 1.5rem; margin-right: 1rem;
     color: #222; }
 .callback form { padding-left: 2rem; display: flex; flex-wrap: wrap;
-    align-items: center; width: 50rem; box-sizing: border-box; }
+    align-items: center; width: 50rem; box-sizing: border-box; position: relative; }
 .callback button.btn { width: 22.5rem; margin-bottom: 2.5rem; }
+.callback span { position: absolute; top: -1rem; left: 0; z-index: 4; }
+.callback .success { padding: 1.25rem; background: #d4edda;
+    border: 1px solid #c3e6cb; color: #155724; margin: 0; font-size: 1.125rem;
+    display: none; max-width: 20rem; }
+#callbackerror { border-color: red; background: pink; color: red; }
+.callback .success.show { display: flex; }
 
 /*************** PROBLEMS ***************/
 .problems > div { display: flex; flex-wrap: wrap; }
@@ -185,6 +191,14 @@ p { line-height: 1.3rem; }
 .order form {  display: flex; flex-wrap: wrap;
     align-items: center; width: 50rem; }
 .order button.btn { width: 22.5rem; margin-bottom: 4.5rem; }
+.order span { position: absolute; top: -3rem; left: 0; z-index: 4; }
+.order .success { padding: 1.25rem; background: #d4edda;
+    border: 1px solid #c3e6cb; color: #155724; margin: 0; font-size: 1.125rem;
+    display: none; max-width: 20rem; }
+#callbackerror2, #comerror { border-color: red; background: pink; color: red; }
+.order .success.show { display: flex; }
+
+
 
 /*************** PORTFOLIO ***************/
 .grid h1 { color: #222; text-transform: uppercase; font-size: 2.25rem;
@@ -371,6 +385,7 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 700px) {
+    .callback span, .order span { left: 4rem; }
     .stats { margin: 0; }
     .grid > div > div { width: 14rem; }
 
@@ -404,6 +419,7 @@ p { line-height: 1.3rem; }
 }
 
 @media screen and (max-width: 500px) {
+    .callback span, .order span { left: 0rem; }
     .callmepopup form, .callmepopup input { width: 17rem; }
     .grid > div > div { width: 100%; }
     .container > div, .advantages > div > img, .hero img { width: 18rem; }

@@ -39,6 +39,42 @@ app.post("/callmeback", function(req, res) {
       res.send(JSON.stringify({data: 1}));
 });
 
+app.post("/getconsult", function(req, res) {
+   var email = req.body.email;
+   var name = req.body.name;
+   
+   if(!name || name.length < 3)
+      return res.send(JSON.stringify({data: 0, message: "Сначала введите свое имя!"}));
+      
+   if(!email || !validateEmail(email))
+      return res.send(JSON.stringify({data: 0, message: "Введите правильный e-mail!"}));
+   
+   res.send(JSON.stringify({data: 1}));
+});
+
+app.post("/getcom", function(req, res) {
+   var email = req.body.email;
+   var name = req.body.name;
+   var desc = req.body.desc;
+   
+   if(!name || name.length < 3)
+      return res.send(JSON.stringify({data: 0, message: "Сначала введите свое имя!"}));
+      
+   if(!email || !validateEmail(email))
+      return res.send(JSON.stringify({data: 0, message: "Введите правильный e-mail!"}));
+      
+   if(!desc || desc.length < 3)
+      return res.send(JSON.stringify({data: 0, message: "Введите описание проекта!"}));
+   
+   res.send(JSON.stringify({data: 1}));
+});
+
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("Server is up and running!");
 });
+
+/*** HELPER FUNCTIONS ****/
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}

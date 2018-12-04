@@ -97,18 +97,81 @@
                         $("#callmeresponse").removeClass("show");
                         $("#callmeerror").removeClass("show");
                         if(data.data === 1) {
-                            console.log("yaay");
                             $("#callmeresponse").addClass("show");
                         } else {
                             $("#callmeerror").html(data.message);
                             $("#callmeerror").addClass("show");
                         }
                     },
-                    error: function(error){
-                         console.log("Error:");
-                         console.log(error);
-                    }
+                    error: function(error){ console.log(error); }
                 });
+            });
+            
+            $("#getConsult").click((e) => {
+               e.preventDefault();
+               $.ajax({
+                  url: "/getconsult",
+                  type: "POST",
+                  dataType: "json",
+                  data: {"email": $("#consultemail").val(), "name": $("#consultname").val()},
+                  success: function(data) {
+                        console.log(data);
+                        $("#callbackmsg").removeClass("show");
+                        $("#callbackerror").removeClass("show");
+                        if(data.data === 1) {
+                            $("#callbackmsg").addClass("show");
+                        } else {
+                            $("#callbackerror").html(data.message);
+                            $("#callbackerror").addClass("show");
+                        }
+                  },
+                  error: function(error) { console.log(error); }
+               });
+            });
+            
+            $("#getConsult2").click((e) => {
+               e.preventDefault();
+               $.ajax({
+                  url: "/getconsult",
+                  type: "POST",
+                  dataType: "json",
+                  data: {"email": $("#consultemail2").val(), "name": $("#consultname2").val()},
+                  success: function(data) {
+                        console.log(data);
+                        $("#callbackmsg2").removeClass("show");
+                        $("#callbackerror2").removeClass("show");
+                        if(data.data === 1) {
+                            $("#callbackmsg2").addClass("show");
+                        } else {
+                            $("#callbackerror2").html(data.message);
+                            $("#callbackerror2").addClass("show");
+                        }
+                  },
+                  error: function(error) { console.log(error); }
+               });
+            });
+            
+            $("#getCom").click((e) => {
+               e.preventDefault();
+               $.ajax({
+                  url: "/getcom",
+                  type: "POST",
+                  dataType: "json",
+                  data: {"email": $("#comemail").val(), 
+                    "name": $("#comname").val(), "desc": $("#comdesc").val() },
+                  success: function(data) {
+                        console.log(data);
+                        $("#commsg").removeClass("show");
+                        $("#comerror").removeClass("show");
+                        if(data.data === 1) {
+                            $("#commsg").addClass("show");
+                        } else {
+                            $("#comerror").html(data.message);
+                            $("#comerror").addClass("show");
+                        }
+                  },
+                  error: function(error) { console.log(error); }
+               });
             });
         });
 

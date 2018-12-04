@@ -34,17 +34,21 @@
                 <form action="#">
                     <div>
                         <p>Ваше имя</p>
-                        <input type="text">
+                        <input type="text" id="comname">
                     </div>
                     <div>
                         <p>Ваш e-mail</p>
-                        <input type="text">
+                        <input type="email" id="comemail">
                     </div>
                     <div class="text">
                         <p>Описание проекта</p>
-                        <textarea rows="2"></textarea>
+                        <textarea id="comdesc" rows="2"></textarea>
                     </div> 
-                    <button class="btn btn-yellow">Получить КП</button>
+                    <button class="btn btn-yellow" id="getCom">Получить КП</button>
+                    <div style="position: relative; width: 100%; ">
+                        <span id="commsg" class="success">Ваша заявка принята! Мы ответим в ближайшее время.</span>
+                        <span id="comerror" class="success"></span>
+                    </div>
                 </form>
             </div>
             <img src="img/girl.jpg" class="shadow" alt="">

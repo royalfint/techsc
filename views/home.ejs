@@ -34,13 +34,17 @@
                 <form action="#">
                     <div>
                         <p>Ваше имя</p>
-                        <input type="text">
+                        <input id="consultname" type="text">
                     </div>
                     <div>
                         <p>Ваш e-mail</p>
-                        <input type="text">
+                        <input id="consultemail" type="email">
                     </div>
-                    <button class="btn btn-yellow">Получить консультацию</button>
+                    <button class="btn btn-yellow" id="getConsult">Получить консультацию</button>
+                    <div style="position: relative; width: 100%; ">
+                        <span id="callbackmsg" class="success">Ваша заявка принята! Мы ответим в ближайшее время.</span>
+                        <span id="callbackerror" class="success"></span>
+                    </div>
                 </form>
             </div>
         </div>
@@ -150,13 +154,17 @@
                 <form action="#">
                     <div>
                         <p>Ваше имя</p>
-                        <input type="text">
+                        <input id="consultname2" type="text">
                     </div>
                     <div>
                         <p>Ваш e-mail</p>
-                        <input type="text">
+                        <input id="consultemail2" type="email">
                     </div>
-                    <button class="btn btn-yellow">Получить консультацию</button>
+                    <button class="btn btn-yellow" id="getConsult2">Получить консультацию</button>
+                    <div style="position: relative; width: 100%; ">
+                        <span id="callbackmsg2" class="success">Ваша заявка принята! Мы ответим в ближайшее время.</span>
+                        <span id="callbackerror2" class="success"></span>
+                    </div>
                 </form>
             </div>
             <img src="img/build.jpg" class="shadow" alt="">
