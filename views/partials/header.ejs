@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Тех Строй Консалтинг | Админ панель</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="/css/admin.css">
+        <link rel="stylesheet" href="/stylesheets/resp.css">
+        <link rel="stylesheet" href="/stylesheets/menu.css">
+        <link rel="shortcut icon" href="<%= url %>/fav.png" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://rawgit.com/ruyadorno/simple-slider/master/dist/simpleslider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    </head>
+    <body>
+    <div class="nav">
+        <a href="/"><img class="blogo" src="<%= url %>/svg/logo.svg"></a>
+        <div class="links">
+            <% if(!currentUser){ %>
+                <a href="/signin">Войти</a>
+                <a href="/signup">Регистрация</a>
+            <% }else{ %>
+                <a href="/posts">Привет, <%= currentUser.username %></a>
+                <a href="/logout">Выйти</a>
+            <% } %>
+        </div>
+        <div id="mob">
+            <button onclick="menu(this)" class="hamburger hamburger--squeeze" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="mobbar">
+    <% if (!currentUser) { %>
+        <a href="/signin"><img src="../svg/signin.svg">Войти</a>
+        <a href="/signup"><img src="../svg/add-user.svg">Регистрация</a>
+    <% } else { %>
+        <a href="/post/new"><img src="../svg/add-item.svg">Новый пост</a>
+        <a href="/logout"><img src="../svg/logout.svg">Выйти</a>
+    <% } %>
+</div>

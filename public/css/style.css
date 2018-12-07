@@ -220,8 +220,10 @@ p { line-height: 1.3rem; }
 .grid h3 { font-size: 1.125rem; text-transform: uppercase; padding: 1.125rem 0;
     line-height: 1.4rem; }
 .grid h7 { width: 100%; margin-bottom: 1.5rem; }
-.grid button { width: 100%; background: #c8c3c0; color: #fff; cursor: pointer; }
-.grid button:hover { background: #b3aca8; }
+.grid button, .grid a { width: 100%; background: #c8c3c0; color: #fff;
+    box-sizing: border-box; text-decoration: none; position: relative;
+    display: inline-block; margin-top: .2rem; cursor: pointer; text-align: center; }
+.grid button:hover, .grid a:hover { background: #b3aca8; }
 .grid.finished { margin: 2rem 0 2rem 0; }
 
 /*************** MAP ***************/

@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<% include ../partials/minibar %>
+
+<div class="adminarea">
+    <p class="adminh">Новый пост</p>
+    <form class="login new">
+        <div class="flash">
+            <% if(error && error.length > 0) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } if(success && success.length > 0) { %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+            <% } %>
+        </div>
+    </form>
+
+    <form class="login new" id="addprod" action="/posts" method="POST">
+        <input type="text" name="title" placeholder="Имя поста" value="<%= fc.title %>">
+        <input type="text" name="image" placeholder="URL картинки" value="<%= fc.image %>">
+        <textarea class="form-control" rows="2" type="text" name="desc" placeholder="Краткое описание"><%= fc.desc %></textarea>
+        <textarea class="form-control" rows="10" type="text" name="content" placeholder="Содержание"><%= fc.content %></textarea>
+
+        <button class="btn btn-lg btn-primary btn-block">Добавить</button>
+        <a href="/post/clear">Отмена</a>
+    </form>
+</div>
+
+<% include ../partials/footer %>

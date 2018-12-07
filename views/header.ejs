@@ -22,13 +22,13 @@
         @-webkit-keyframes loads { from { height: 1vh; } to { height: 100vh; } }
         @keyframes loads { from { height: 1vh; } to { height: 100vh; } }
     </style>
-    <link rel="shortcut icon" thpe="image/png" href="favicon.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="<%= url %>/favicon.png">
+    <link rel="stylesheet" type="text/css" href="<%= url %>/css/style.css">
 </head>
 
 <body>
     <div class="loading" id="loader">
-        <img src="svg/logo.svg">
+        <img src="<%= url %>/svg/logo.svg">
         <p style="color: #222;">Тех Строй Консалтинг</p>
         <div class="line loads"></div>
     </div>
@@ -48,15 +48,15 @@
     <section id="topmenu" class="topmenu container shadow">
         <div>
             <div>
-                <img src="svg/location.svg">
+                <img src="<%= url %>/svg/location.svg">
                 <p>г.Астана, Кургальжинское шоссе<br>13/2, офис 302</p>
             </div>
             <div>
-                <img src="svg/envelope.svg">
+                <img src="<%= url %>/svg/envelope.svg">
                 <p>info@techsc.kz</p>
             </div>
             <div>
-                <img class="phonetop" src="svg/phone.svg">
+                <img class="phonetop" src="<%= url %>/svg/phone.svg">
                 <p class="phonetop">+7 (700) 345 56 78</p>
             </div>
             <div>
@@ -70,7 +70,7 @@
         <a href="/portfolio">Портфолио</a>
         <a href="/certificates">Аккредитация</a>
         <a href="/about">О Нас</a>
-        <a href="/blog">Блог</a>
+        <a href="/posts">Блог</a>
         <a href="/contacts">Контакты</a>
     </div>
 
@@ -82,9 +82,9 @@
         <div>
             <div>
                 <% if(light) { %>
-                    <img src="svg/logo.svg" alt="">
+                    <img src="<%= url %>/svg/logo.svg" alt="">
                 <% } else { %>
-                    <img src="svg/logo-white.svg" alt="">
+                    <img src="<%= url %>/svg/logo-white.svg" alt="">
                 <% } %>
             </div>
             <div>
@@ -107,7 +107,7 @@
                 <% } if(page === "Блог") { %>
                     <a href="#" class="active">Блог</a>
                 <% } else { %>
-                    <a href="/blog">Блог</a>
+                    <a href="/posts">Блог</a>
                 <% } if(page === "Контакты") { %>
                     <a href="#" class="active">Контакты</a>
                 <% } else { %>

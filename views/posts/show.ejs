@@ -1,0 +1,35 @@
+<% include ../header %>
+
+<section class="grid container">
+    <div>
+        <h1><%= post.title %></h1>
+        <p><%- post.content %></p>
+    </div>
+</section>
+
+    <section style="margin-top: 1rem;" class="callback container">
+        <div>
+            <img src="<%= url %>/img/contact.jpg" class="shadow" alt="">
+            <div>
+                <h1>Заказать обратный звонок</h1>
+                <p class="sub">Оставьте заявку прямо сейчас и получите бесплатную консультацию.</p>
+                <form>
+                    <div>
+                        <p>Ваше имя</p>
+                        <input id="consultname" type="text">
+                    </div>
+                    <div>
+                        <p>Ваш e-mail</p>
+                        <input id="consultemail" type="email">
+                    </div>
+                    <button class="btn btn-yellow" id="getConsult">Получить консультацию</button>
+                    <div style="position: relative; width: 100%; ">
+                        <span id="callbackmsg" class="success">Ваша заявка принята! Мы ответим в ближайшее время.</span>
+                        <span id="callbackerror" class="success"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<% include ../footer %>

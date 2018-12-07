@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*** admin sidebar ****/
+.toolbar {
+    position: fixed;
+    left: -100%;
+    top: 59px;
+    width: 12rem;
+    padding: 1rem 0;
+    height: 100%;
+    max-height: calc(100vh - 60px);
+    background: #999999;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.mobbar {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    background: #999999;
+    z-index: 80;
+    flex-wrap: wrap;
+    transition: all .3s ease;
+}
+
+.mobbar.open { bottom: 0; }
+
+.toolbar.left { left: 0; }
+
+.toolbar a,
+.mobbar a{
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.mobbar a { width: 7rem; }
+
+.mobbar {
+    font-size: 0.8rem;
+}
+
+.toolbar a:hover{
+    background: #7f7f7f;
+}
+
+.toolbar a img {
+    height: 1.7rem;
+    margin-right: 0.5rem;
+}
+
+.mobbar a img{
+    height: 1.4rem;
+    margin-right: .3rem;
+}
+
+.adminh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    background: #ada6a6;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.nav > a {
+    text-decoration: none;
+}
+
+.adminarea {
+    position: relative;
+    background: #eff0f2;
+    width: calc(100% - 14rem);
+    min-height: 100px;
+    margin: 1rem 1rem 1rem 13rem;
+    box-sizing: border-box;
+    padding: 4.5rem 1rem 1rem 1rem;
+}
+
+/**** nav ****/
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: #999999 1px solid;
+    width: 100%;
+}
+
+.blogo {
+    height: 1.35rem;
+}
+
+.nav span {
+    font-weight: 900;
+    color: #999999;
+    text-decoration: none;
+}
+
+.nav .links > a{
+    margin: 0 0 0 1rem;
+    color: #999999;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav .links > a:hover {
+    opacity: 0.7;
+}
+
+/***** products grid ***/
+.productsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+    margin-top: -.25rem;
+}
+
+.productInfo {
+    position: relative;
+    color: #000;
+}
+
+.product .price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #000;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    background: rgba(255,255,255, 0.85);
+}
+
+.productInfo:hover .productOverlay{
+    opacity: 1;
+}
+
+.productOverlay {
+    transition: all 0.3s ease;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255, 0.7);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.productOverlay p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.product {
+    width: 12.5%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0.25rem;
+    position: relative;
+}
+
+.productImg {
+    width: 100%;
+    padding-bottom: 100%
+}
+
+/*** login **/
+
+.butt {
+    background: #999999;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #fff;
+    border: 0;
+    font-size: 0.9rem;
+    margin: 0  0 0.2rem 1.2rem;
+    cursor: pointer;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    box-sizing: border-box;
+}
+
+.delrow {
+    display: flex;
+    align-items: center;
+}
+
+.delrow img {
+    height: 1.5rem;
+}
+
+.delrow button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    margin: 0 1rem;
+    padding: 0;
+}
+
+form.login {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 28rem;
+    font-family: 'Montserrat';
+    box-sizing: border-box;
+    background: #eff0f2;
+}
+
+form.login.new {
+    padding: 0;
+    max-width: 30rem;
+}
+
+form.login input, form select, textarea {
+    border: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    margin-bottom: 0.5rem;
+    border: 1px solid gray;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+}
+
+form.login button, .butta {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #29a0cb;
+    font-family: 'Montserrat';
+    border: 0;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+form.login button{
+    margin-bottom: 1rem;
+}
+
+.users { 
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.users td, .users th{
+    padding: 0.65rem 1rem;
+    background: lightgray;
+}
+
+.topform input {
+    font-size: 1rem;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+}
+
+iframe.map {
+    margin-top: 4rem;
+    width: 60rem;
+}
+
+form.login p {
+    margin: 0 0 1rem 0;
+}
+
+/**** product page **/
+.showroom {
+    display: flex;
+    align-items: flex-start;
+}
+
+.showroom .main, .showroom .slidewrap, .showroom .slidewrap{
+    width: 30rem;
+    height: 30rem;
+}
+
+.call {
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.call img{
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+.showroom .slidewrap {
+    overflow: hidden;
+}
+
+.slidewrap img,
+.slidewrap > iframe{
+    min-width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+    background-color: rgba(255,0,0,0.5);
+}
+
+.showdesc {
+    padding: 0 2rem;
+    width: 30rem;
+    box-sizing: border-box;
+}
+
+.centered {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+/*** small slides**/
+.small-slides {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+.small-slides > div {
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0.5rem solid #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.small-slides > div:hover {
+    border: 0;
+}
+
+.small-slides > div > img {
+    width: 100%;
+}
+
+.next, .prev {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    cursor: pointer;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.next { right: 0rem; }
+.prev { left: 0rem; }
+
+.next img, .prev img {
+    height: 2.5rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 2rem;
+}
+
+/*** search **/
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.search img{
+    height: 1.5rem;
+    padding: 0.2rem;
+}
+
+.search button {
+    position: absolute;
+    bottom: 0.05rem;
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    right: 2.3rem;
+}
+
+.search .gear {
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.4rem;
+    height: 1.6rem;
+    cursor: pointer;
+}
+
+.search input {
+    width: 19rem;
+    border: 0;
+    padding: 0.5rem 2.8rem 0.6rem 1rem;
+    border: 1px solid gray;
+    border-radius: 2rem !important; 
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+}
+
+.advanced {
+    width: 19rem;
+    display: none;
+    background: lightgray;
+    border-radius: 0.3rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.advanced.show { display: flex; }
+
+.advanced select { width: 17rem; }
+
+.share img { height: 2rem;   }
+
+.author {
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    margin: 2rem 0;
+}
+
+.selava {
+    width: 19rem;
+    position: relative;
+    top: -1.3rem;
+    height: 20rem;
+    margin: 0 2rem;
+}
+
+.selava img {
+    width: 100%;
+}
+
+.author h1 { margin: 0; }
+
+.flash {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: column;
+}
+
+.alert {
+    margin: 0 0 1rem 0;
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.alert-danger {
+    color: #a94442;
+    background: #f2dede;
+    border: 1px solid #ebccd1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #d6e9c6;
+}
+
+.upload {
+    display: flex;
+    justify-content: space-around;
+    width: 28rem;
+}
+
+.upload.single {
+    width: 5rem;
+}
+
+.upload > div {
+    height: 4rem;
+    width: 4rem;
+    background: #fff;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .3rem 1rem .3rem;
+    overflow: hidden;
+}
+
+.newava {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem 0;
+}
+
+.newava input {
+     padding: 1rem 0 1rem 0;
+}
+
+.upload > div.chosen { background-color: #dbdbdb; }
+
+.slid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.upload .new { cursor: pointer; }
+.upload .new img.add{ height: 2rem; }
+
+.data input[type="file"], .added, .chosen .add{ display: none; }
+
+.data { margin: 0; display: flex; }
+
+.rating {
+    display: flex;
+    margin: 0.5rem 0;
+    position: relative;
+    left: -0.4rem;
+}
+
+img.like {
+    height: 1.8rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    opacity: 0.4;
+}
+
+.rating img { 
+    height: 2.2rem;
+    margin: 0 0.2rem;
+    filter: gray;
+    cursor: pointer;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.rating .sel, img.like.liked {
+    -webkit-filter: grayscale(0);
+    filter: none;
+    opacity: 1;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1rem;
+    cursor: pointer;
+    display: none;
+    z-index: 9;
+}
+
+.avablock {
+    height: 4rem;
+    width: 4rem;
+    position: relative;
+}
+
+.uploaded .add { display: none; }
+
+.uploaded .close, .uploaded .dataImg { display: block; }
+
+.dataImg {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.callbutt.show { display: flex; }
+
+.callhim {
+    position: fixed;
+    bottom: 0;
+    right: 1rem;
+    z-index: 8;
+    display: none;
+    flex-direction: column;
+}
+
+.callbutt, .hid, #mob, .none{ display: none; }
+
+.callhim img { height: 4rem; margin-bottom: 1rem; }
+
+input, button, select { border-radius: 0.3rem !important; }
+
+.sortbar {
+    width: 100%;
+    background: gray;
+    height: 3rem;
+    box-sizing: border-box;
+    display: flex;
+    padding: 0 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.sortbar select{ margin-bottom: 0; }
+
+.invisible { display: none; }
