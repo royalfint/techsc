@@ -12,14 +12,16 @@ var User        = require("./models/user"),
     postRoutes  = require("./routes/posts"),
     authRoutes  = require("./routes/auth");
 
-var app = express(),
-    api = "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";
+
+var app       = express(),
+    redirect  = require('express-http-to-https').redirectToHTTPS,
+    api       = "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";
     
 //global.siteurl = "https://techsc-royalfint.c9users.io";
 global.siteurl = "https://www.techsc.kz";
 mongoose.connect("mongodb://techsc_admin:YtEpyftimVjq1Gfhjkm@ds135798.mlab.com:35798/techsc",
    { useNewUrlParser: true });
-
+app.use(redirect([/localhost:(\d{4})/], [/\/insecure/], 301));
 app.use(require("express-session")({
     secret: "Once again Rusty wins cutest dog!",
     resave: false,
