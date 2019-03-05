@@ -5,7 +5,7 @@ var express = require("express"),
     app     = express.Router(),
     User    = require("../models/user");
 
-var adminEmail = "royalfint@hotmail.com";
+var adminEmail = "info@techsc.kz";
 
 app.get("/", function(req, res) { res.render("home", {light: false, page: "Главная"});  });
 app.get("/portfolio", function(req, res) { res.render("portfolio", {light: true, page: "Портфолио"});  });
